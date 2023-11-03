@@ -4,10 +4,14 @@ import com.memo.memo.dto.MemoRequestDto;
 import com.memo.memo.dto.MemoResponseDto;
 import com.memo.memo.entity.Memo;
 import com.memo.memo.repository.MemoRepository;
+import org.apache.catalina.core.ApplicationContext;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public class MemoService {
+@Service
+public class MemoService {  // memoService 라는 이름으로 Bean에 등록
 
     private final MemoRepository memoRepository;
 

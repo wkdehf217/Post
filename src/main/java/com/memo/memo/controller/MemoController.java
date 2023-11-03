@@ -81,7 +81,6 @@ package com.memo.memo.controller;
 import com.memo.memo.dto.MemoRequestDto;
 import com.memo.memo.dto.MemoResponseDto;
 import com.memo.memo.service.MemoService;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

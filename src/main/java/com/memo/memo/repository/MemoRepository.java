@@ -3,10 +3,13 @@ package com.memo.memo.repository;
 import com.memo.memo.dto.MemoRequestDto;
 import com.memo.memo.dto.MemoResponseDto;
 import com.memo.memo.entity.Memo;
+import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,6 +17,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
+@Repository
 public class MemoRepository {
 
     private final JdbcTemplate jdbcTemplate;

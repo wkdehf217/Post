@@ -23,7 +23,7 @@ public class PostResponseDto {
         this.date = Post.getDate();
     }
 
-    public PostResponseDto(Long id, String username, String contents, String title, String date) {
+    public PostResponseDto(Long id, String title, String username, String contents, String date) {
         this.id = id;
         //this.pw = pw;
         this.title = title;

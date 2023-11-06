@@ -5,8 +5,11 @@ import com.post.post.dto.PostRequestDto;
 import com.post.post.dto.PostResponseDto;
 import com.post.post.entity.Post;
 import com.post.post.repository.PostRepository;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 @Service
@@ -41,7 +44,7 @@ public class PostService {  // PostService 라는 이름으로 Bean에 등록
         return PostRepository.findPost(id);
     }
 
-    public Long updatePost(Long id, Long pw, PostRequestDto requestDto) {
+    public PostResponseDto updatePost(Long id, Long pw, PostRequestDto requestDto) {
         // DB 수정
         // 해당 게시판이 DB에 존재하는지 확인
         Post Post =  PostRepository.findById(id,pw);
@@ -49,9 +52,9 @@ public class PostService {  // PostService 라는 이름으로 Bean에 등록
             // Post 내용 수정
             PostRepository.update(id, pw,requestDto);
 
-            return id;
+            return new PostResponseDto(id,requestDto.getTitle(),requestDto.getUsername(), requestDto.getContent(),Post.getDate());
         } else {
-            throw new IllegalArgumentException("선택한 글은 존재하지 않습니다.");
+            throw new PostNotFoundException();
         }
     }
 

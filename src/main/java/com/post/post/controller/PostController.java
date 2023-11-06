@@ -115,7 +115,7 @@ public class PostController {
     }
 
     @PutMapping("/Post/{id}/{pw}")
-    public Long updatePost(@PathVariable Long id,@PathVariable Long pw, @RequestBody PostRequestDto requestDto) {
+    public PostResponseDto updatePost(@PathVariable Long id,@PathVariable Long pw, @RequestBody PostRequestDto requestDto) {
         return PostService.updatePost(id, pw, requestDto);
     }
 

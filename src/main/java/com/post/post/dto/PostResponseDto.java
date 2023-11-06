@@ -3,12 +3,9 @@ package com.post.post.dto;
 import com.post.post.entity.Post;
 import lombok.Getter;
 
-import java.util.Date;
-
 @Getter
 public class PostResponseDto {
     private Long id;
-    //private Long pw;
     private String title;
     private String username;
     private String contents;
@@ -16,7 +13,6 @@ public class PostResponseDto {
 
     public PostResponseDto(Post Post) {
         this.id = Post.getId();
-        //this.pw = Post.getPw();
         this.title = Post.getTitle();
         this.username = Post.getUsername();
         this.contents = Post.getContent();
@@ -25,7 +21,6 @@ public class PostResponseDto {
 
     public PostResponseDto(Long id, String title, String username, String contents, String date) {
         this.id = id;
-        //this.pw = pw;
         this.title = title;
         this.username = username;
         this.contents = contents;

@@ -2,8 +2,6 @@ package com.post.post.dto;
 
 import lombok.Getter;
 
-import java.util.Date;
-
 @Getter
 public class PostRequestDto {
     private Long pw;

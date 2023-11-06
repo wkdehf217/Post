@@ -25,7 +25,6 @@ public class PostRepository {
         KeyHolder keyHolder = new GeneratedKeyHolder(); // 기본 키를 반환받기 위한 객체
 
         String sql = "INSERT INTO Post (pw, title, username, content, date) VALUES (?, ?, ?, ?, ?)";
-        //String sql = "INSERT INTO Post (title, username, contents, date) VALUES (?, ?, ?, ?)";
         jdbcTemplate.update( con -> {
                     PreparedStatement preparedStatement = con.prepareStatement(sql,
                             Statement.RETURN_GENERATED_KEYS);
@@ -54,7 +53,6 @@ public class PostRepository {
             public PostResponseDto mapRow(ResultSet rs, int rowNum) throws SQLException {
                 // SQL 의 결과로 받아온 Post 데이터들을 PostResponseDto 타입으로 변환해줄 메서드
                 Long id = rs.getLong("id");
-                //Long pw = rs.getLong("pw");
                 String title = rs.getString("title");
                 String username = rs.getString("username");
                 String contents = rs.getString("content");
@@ -73,7 +71,6 @@ public class PostRepository {
             public PostResponseDto mapRow(ResultSet rs, int rowNum) throws SQLException {
                 // SQL 의 결과로 받아온 Post 데이터들을 PostResponseDto 타입으로 변환해줄 메서드
                 Long id = rs.getLong("id");
-                //Long pw = rs.getLong("pw");
                 String title = rs.getString("title");
                 String username = rs.getString("username");
                 String contents = rs.getString("content");
@@ -100,11 +97,9 @@ public class PostRepository {
             return jdbcTemplate.query(sql, resultSet -> {
                 if(resultSet.next()) {
                     Post Post = new Post();
-                    //Post.setPw(pw);
                     Post.setTitle(resultSet.getString("title"));
                     Post.setUsername(resultSet.getString("username"));
                     Post.setContent(resultSet.getString("content"));
-                    //Post.setDate(resultSet.getString("date"));
                     return Post;
                 } else {
                     return null;
